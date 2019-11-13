@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { item } from './types';
+import ItemCard from './components/ItemCard';
+import './App.scss';
+import axios from 'axios';
 
 const App: React.FC = () => {
+
+  const [items, setItems] = useState<Array<item>>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios('http://localhost:3001/items');
+        setItems(data);
+      } catch (error) {
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        items.map((item, key) =>
+          <div key={key} style={{'width': '780px'}}>
+            <ItemCard
+              title={item.name}
+              description={item.description}
+              image={item.imageUrl}
+            />
+          </div>
+        )
+      }
     </div>
   );
 }
