@@ -28,22 +28,16 @@ const App: React.FC = () => {
     }
   };
 
-  const removeItemFromCart = (itemId: number): void => {
-    const removedCartItem = items.find((item: item) => item.id === itemId);
-
-    if(removedCartItem) {
-      const mutableShoppingCart = [ ...shoppingCart ];
-      const removedCartItemIndex = items.indexOf(removedCartItem);
-
-      mutableShoppingCart.splice(removedCartItemIndex, 1);
-
-      setShoppingCart(mutableShoppingCart);
-    }
+  const removeItemFromCart = (itemPosition: number): void => {
+    const mutableShoppingCart = [ ...shoppingCart ];
+    mutableShoppingCart.splice(itemPosition, 1);
+    setShoppingCart(mutableShoppingCart);
   };
 
   return (
     <div className="App">
       <div className="store-list-container">
+        <span className="section-title">Our products</span>
         {
           items.map((item, key) =>
             <div key={key} style={{'width': '780px'}}>
@@ -60,9 +54,11 @@ const App: React.FC = () => {
         }
       </div>
       <div className="shopping-cart-container">
+        <span className="section-title">Shopping cart</span>
         {
           shoppingCart.map((item, key) =>
             <ListItem
+              itemPosition={key}
               key={key}
               id={item.id}
               title={item.name}

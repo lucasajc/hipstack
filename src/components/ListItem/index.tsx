@@ -4,6 +4,7 @@ import './ListItem.scss';
 import 'styles/buttons.scss';
 
 type ListItemProps = {
+  itemPosition: any,
   id: number,
   title: string,
   description?: string,
@@ -12,7 +13,7 @@ type ListItemProps = {
   onRemoveItemFromCart?: any,
 }
 
-const ListItem: React.FC<ListItemProps> = ({ id, title, description, image, type, onRemoveItemFromCart }) => {
+const ListItem: React.FC<ListItemProps> = ({ itemPosition, id, title, description, image, type, onRemoveItemFromCart }) => {
 
   const handleRemoveItemFromCart = (itemId: number) => {
     onRemoveItemFromCart(itemId);
@@ -31,7 +32,7 @@ const ListItem: React.FC<ListItemProps> = ({ id, title, description, image, type
         <div className="item-list-actions">
           <button
             className="button danger add-to-cart-button"
-            onClick={() => handleRemoveItemFromCart(id)}>
+            onClick={() => handleRemoveItemFromCart(itemPosition)}>
             Remove
           </button>
         </div>
