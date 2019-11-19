@@ -1,0 +1,41 @@
+.item-list-container {
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    display: flex;
+    margin: 12px;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    padding: 12px;
+    // width: 100%;
+    flex: 1;
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.09);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+    }
+}
+
+.item-list-image-container {
+    min-width: 64px;
+    height: 64px;
+    margin: auto;
+    .item-card-image {
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.item-list-details-text {
+    flex-grow: 1;
+    margin: auto;
+    text-align: left;
+    margin-left: 16px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.item-list-actions {
+    margin: auto;
+    padding: 0 16px;
+}

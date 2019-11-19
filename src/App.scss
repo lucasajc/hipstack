@@ -3,7 +3,10 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: start;
   background-color: #F5F6F7;
+}
+
+.shopping-cart-container {
+  flex-grow: 1;
 }
