@@ -1,19 +1,15 @@
 import React from 'react';
-import { itemType } from 'types';
 import './ListItem.scss';
 import 'styles/buttons.scss';
 
 type ListItemProps = {
   itemPosition: any,
-  id: number,
   title: string,
-  description?: string,
   image?: string,
-  type?: itemType,
   onRemoveItemFromCart?: any,
 }
 
-const ListItem: React.FC<ListItemProps> = ({ itemPosition, id, title, description, image, type, onRemoveItemFromCart }) => {
+const ListItem: React.FC<ListItemProps> = ({ itemPosition, title, image, onRemoveItemFromCart }) => {
 
   const handleRemoveItemFromCart = (itemId: number) => {
     onRemoveItemFromCart(itemId);

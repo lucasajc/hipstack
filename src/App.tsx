@@ -60,7 +60,6 @@ const App: React.FC = () => {
             <ListItem
               itemPosition={key}
               key={key}
-              id={item.id}
               title={item.name}
               image={item.imageUrl}
               onRemoveItemFromCart={(itemId: number) => removeItemFromCart(itemId)}
